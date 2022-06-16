@@ -14,6 +14,29 @@ const BD = [
 
 ];
 
+function mostrarProductos(){
+        
+        let carta = document.querySelector('#carta');
+
+
+        BD.forEach((data) => {
+
+                let producto =`
+                
+                <div class="card" style="width:400px">
+                        <div class="card-body">
+                        <h4 class="card-title">${data.nombre}</h4>
+                        <p class="card-text">${data.valor}</p>
+                        </div>
+                        <!-- <img class="card-img-bottom" src="../bootstrap4/img_avatar6.png" alt="Card image" style="width:100%"> -->
+                </div>
+                
+                `
+                carta .innerHTML += producto
+        });
+}
+
+mostrarProductos();
 
 function solicitar(){
         
@@ -23,11 +46,11 @@ function solicitar(){
                 this.valor = valor
         }
 
-        nombre = prompt('Ingrese  el nombre producto ');
-        valor = prompt('Ingrese el valor del producto');
-
+        nombre = document.querySelector('#nombre');
+        valor = document.querySelector('#valor');
+        
         nuevoProducto = new Producto(nombre, valor);
-        console.log(nuevoProducto)
+        console.log(nombre)
 }
 
        
@@ -53,4 +76,4 @@ function eliminar(){
 
 /* solicitar();
 agregar(); */
-consultar();
+//consultar();
