@@ -27,35 +27,47 @@ function mostrarProductos(){
                         <div class="card-body">
                         <h4 class="card-title">${data.nombre}</h4>
                         <p class="card-text">${data.valor}</p>
+                        <button class="button-add" onclick="add(${data.nombre},${data.valor})">Agregar</button>
                         </div>
                         <!-- <img class="card-img-bottom" src="../bootstrap4/img_avatar6.png" alt="Card image" style="width:100%"> -->
                 </div>
                 
                 `
-                carta .innerHTML += producto
+                carta.innerHTML += producto
         });
 }
 
 mostrarProductos();
 
-function solicitar(){
-        
+let products = [];
+let total = 0;
+
+function add(nombre, valor) {
+    console.log(nombre, valor);
+   /*  products.push(nombre);
+    total = total + valor;
+    document.getElementById("checkout").innerHTML = `Pagar $${total}` */
+}
+
+function pay() {
+    window.alert(products.join(", \n"));
+}
+       
+
+function agregar(){
+        nombre = document.querySelector('#nombre').value;
+        valor = document.querySelector('#valor').value;
+
 
         function Producto(nombre, valor){
                 this.nombre = nombre
                 this.valor = valor
         }
 
-        nombre = document.querySelector('#nombre');
-        valor = document.querySelector('#valor');
+        
         
         nuevoProducto = new Producto(nombre, valor);
-        console.log(nombre)
-}
 
-       
-
-function agregar(){
         BD.push(nuevoProducto);        
         console.log(BD)
 } 
